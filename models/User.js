@@ -15,15 +15,35 @@ const UserSchema = Schema({
     type: String,
     required: true,
   },
-  role: {
+  gender: {
     type: String,
     required: true,
-    enum: ["ADMIN", "USER"],
-    default: "USER",
+    enum: ["Male", "Female", "Other"],
   },
-  google: {
-    type: Boolean,
-    default: false,
+  age: {
+    type: Number,
+    required: true,
+  },
+  languages: {
+    type: String,
+    enum: [
+      "JavaScript",
+      "Python",
+      "C",
+      "C++",
+      "C#",
+      "Java",
+      "Go",
+      "R",
+      "Swift",
+      "PHP",
+      "Ruby",
+      "SQL",
+    ],
+  },
+  bio: {
+    type: String,
+    required: true,
   },
 });
 
