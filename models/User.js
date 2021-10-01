@@ -24,23 +24,6 @@ const UserSchema = Schema({
     type: Number,
     required: true,
   },
-  languages: {
-    type: String,
-    enum: [
-      "JavaScript",
-      "Python",
-      "C",
-      "C++",
-      "C#",
-      "Java",
-      "Go",
-      "R",
-      "Swift",
-      "PHP",
-      "Ruby",
-      "SQL",
-    ],
-  },
   bio: {
     type: String,
     required: true,
