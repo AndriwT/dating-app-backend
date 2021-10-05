@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
+const User = require("../models/User");
 const { generateJwt } = require("../middlewares/processJwt");
 
-const User = require("../models/User");
 
 const getAllUsers = async (req, res) => {
   const users = await User.find();
@@ -23,12 +23,16 @@ const signUpUser = async (req, res) => {
       .status(500)
       .json({ message: "The email entered is already in use" });
   }
-  const user = new User(req.body);
+  const user = await new User(req.body);
   try {
     const salt = bcrypt.genSaltSync();
     user.password = bcrypt.hashSync(req.body.password, salt);
     user.save();
-    return res.status(201).json(user);
+    // TODO: 
+    // generate a token
+    // also return token and user; LOOK at login method
+    const token = await generateJwt(user._id);
+    return res.status(200).json({ user, token });
   } catch (error) {
     return res.status(500).json({ message: "Not able to create user" });
   }

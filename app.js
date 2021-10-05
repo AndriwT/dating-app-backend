@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 //routes
-app.use("/auth", require("./routes/auth"));
+app.use("/api/auth", require("./routes/auth"));
 
 
 //port listen
