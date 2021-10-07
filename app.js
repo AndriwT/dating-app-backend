@@ -37,7 +37,7 @@ server.listen(port, function() {
 
 const io = require('socket.io')(server, {
   cors: {
-    origin: "*",
+    origin: "https://friendly-thompson-f3dede.netlify.app",
     methods: ['GET', 'POST'],
   }
 });
