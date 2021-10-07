@@ -21,7 +21,7 @@ const MessageSchema = Schema(
       required: true,
     },
     chatroom_id: {
-      type: [Schema.Types.ObjectId],
+      type: String,
       required: true,
       ref: "ChatRoom"
     }
